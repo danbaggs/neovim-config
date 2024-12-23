@@ -1,0 +1,6 @@
+require("keymaps")
+require("options")
+require("config.lazy")
+require("autocmds")
+require("plugin-keymaps")
+require("plugin-options")
