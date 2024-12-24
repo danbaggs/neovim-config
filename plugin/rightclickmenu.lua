@@ -1,16 +1,16 @@
 vim.cmd [[
   aunmenu PopUp
-  vnoremenu PopUp.Cut                     "+x
-  vnoremenu PopUp.Copy                    "+y
-  anoremenu PopUp.Paste                   "+gP
-  vnoremenu PopUp.Paste                   "+P
-  vnoremenu PopUp.Delete                  "_x
-  amenu PopUp.-1-             <NOP>
   anoremenu PopUp.Inspect     <cmd>Inspect<CR>
+  amenu PopUp.-1-             <NOP>
   anoremenu PopUp.Definition  <cmd>lua vim.lsp.buf.definition()<CR>
   anoremenu PopUp.References  <cmd>Telescope lsp_references<CR>
   anoremenu PopUp.Back        <C-t>
 ]]
+-- vnoremenu PopUp.Cut                     "+x
+-- vnoremenu PopUp.Copy                    "+y
+-- anoremenu PopUp.Paste                   "+gP
+-- vnoremenu PopUp.Paste                   "+P
+-- vnoremenu PopUp.Delete                  "_x
 
 local group = vim.api.nvim_create_augroup("nvim_popupmenu", { clear = true })
 
