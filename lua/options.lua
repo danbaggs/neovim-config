@@ -18,3 +18,8 @@ vim.opt.termguicolors = true -- enable true color support
 -- Configure how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+-- Plugin options
+-- Nvim-Tree Explorer
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
