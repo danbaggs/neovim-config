@@ -56,7 +56,18 @@ return {
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       -- Set up lua LSP
-      require('lspconfig').lua_ls.setup { capabilities = capabilities }
+      require('lspconfig').lua_ls.setup {
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = {
+              -- Get the language server to recognize the `vim` global
+              globals = { 'vim' },
+            },
+          },
+        },
+
+      }
 
       -- Set up yaml LSP
       require('lspconfig').yamlls.setup { capabilities = capabilities }
