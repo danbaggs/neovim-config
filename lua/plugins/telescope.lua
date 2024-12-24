@@ -12,6 +12,14 @@ return {
     },
     config = function()
       require("telescope").setup {
+        defaults = {
+          file_ignore_patterns = {
+            "%.git/",
+            "%__pycache__/",
+            "%.pytest_cache/",
+            "%.ruff_cache/"
+          }
+        },
         extensions = {
           fzf = {}
         }
@@ -19,7 +27,12 @@ return {
       require("telescope").load_extension("fzf")
       local tsbuiltin = require("telescope.builtin")
       -- Find files
-      vim.keymap.set("n", "<leader>fd", tsbuiltin.find_files)
+      vim.keymap.set("n", "<leader>fd", function()
+        tsbuiltin.find_files {
+          hidden = true,
+          no_ignore = true
+        }
+      end)
       -- Find help tags
       vim.keymap.set("n", "<leader>fh", tsbuiltin.help_tags)
       -- Edit Neovim config files
@@ -35,10 +48,11 @@ return {
       -- Find Neovim Lazy packages
       vim.keymap.set("n", "<leader>ep", function()
         tsbuiltin.find_files {
+          ---@diagnostic disable-next-line: param-type-mismatch
           cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
         }
       end)
-      require("plugins.telescope.multigrep").setup({})
+      require("plugins.telescope.multigrep").setup()
     end
   }
 }
