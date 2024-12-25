@@ -42,6 +42,8 @@ return {
           "xml",
           "yaml",
         },
+        -- Automatically install missing parsers when entering buffer
+        auto_install = true,
         -- Install parsers synchronously (only applied to `ensure_installed`)
         sync_install = false,
         modules = {},
@@ -58,8 +60,6 @@ return {
             node_decremental = "<bs>",
           },
         },
-        -- Automatically install missing parsers when entering buffer
-        auto_install = true,
         highlight = {
           enable = true,
           ---@diagnostic disable-next-line: unused-local

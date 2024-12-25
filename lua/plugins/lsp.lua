@@ -1,7 +1,6 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    event = "VeryLazy",
     dependencies = {
       { "williamboman/mason.nvim" },
       { "williamboman/mason-lspconfig.nvim" },
@@ -19,19 +18,6 @@ return {
       -- {
       --   "jay-babu/mason-null-ls.nvim", -- Add mason-null-ls for managing Ruff and other linters/formatters
       --   dependencies = { "nvimtools/none-ls.nvim" },
-      --   config = function()
-      --     -- Set up mason-null-ls to ensure Ruff is installed
-      --     require("mason-null-ls").setup({
-      --       ensure_installed = { "ruff" }, -- Ensure Ruff is installed
-      --     })
-      --
-      --     local null_ls = require("null-ls")
-      --     null_ls.setup({
-      --       sources = {
-      --         null_ls.builtins.diagnostics.ruff, -- Add Ruff as a linter
-      --       },
-      --     })
-      --   end,
       -- },
     },
     config = function()
@@ -39,8 +25,10 @@ return {
       ---@diagnostic disable-next-line: missing-fields
       require("mason-lspconfig").setup({
         ensure_installed = {
+          "dockerls",
           "bashls",
           "lua_ls",
+          "marksman",
           "pyright",
           "yamlls",
         },
@@ -48,14 +36,14 @@ return {
 
       require('mason-tool-installer').setup({
         -- Install these linters, formatters, debuggers automatically
-        -- ensure_installed = {
-        --   'black',
-        --   'debugpy',
-        --   'flake8',
-        --   'isort',
-        --   'mypy',
-        --   'pylint',
-        -- },
+        ensure_installed = {
+          'black',
+          'debugpy',
+          'flake8',
+          'isort',
+          'mypy',
+          'pylint',
+        },
       })
       vim.api.nvim_command('MasonToolsInstall')
 
@@ -73,7 +61,6 @@ return {
             },
           },
         },
-
       }
 
       -- Set up yaml LSP
@@ -82,16 +69,33 @@ return {
       -- Set up Pyright (Python LSP)
       lspconfig.pyright.setup {
         capabilities = capabilities,
-        -- settings = {
-        --   python = {
-        --     analysis = {
-        --       -- typeCheckingMode = "strict", -- Enable strict type checking
-        --       autoSearchPaths = true,
-        --       useLibraryCodeForTypes = true,
-        --     },
-        --   },
-        -- },
+        settings = {
+          pyright = {
+            -- Using Ruff's import organizer
+            disableOrganizeImports = true,
+          },
+          python = {
+            analysis = {
+              -- Ignore all files for analysis to exclusively use Ruff for linting
+              ignore = { '*' },
+            },
+          },
+        },
       }
+
+      lspconfig.ruff.setup {
+        capabilities = capabilities,
+      }
+
+      -- require("mason-null-ls").setup({
+      --     ensure_installed = { "ruff" }, -- Ensure Ruff is installed
+      --   })
+      -- local null_ls = require("null-ls")
+      -- null_ls.setup({
+      --   sources = {
+      --     null_ls.builtins.diagnostics.ruff, -- Add Ruff as a linter
+      --   },
+      -- })
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
