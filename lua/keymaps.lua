@@ -30,3 +30,21 @@ vim.keymap.set("n", "<leader>qn", ":cnext<CR>")  -- jump to next quickfix list i
 vim.keymap.set("n", "<leader>qp", ":cprev<CR>")  -- jump to prev quickfix list item
 vim.keymap.set("n", "<leader>ql", ":clast<CR>")  -- jump to last quickfix list item
 vim.keymap.set("n", "<leader>qc", ":cclose<CR>") -- close quickfix list
+
+-- Debugging
+vim.keymap.set("n", "<leader>bb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
+vim.keymap.set("n", "<leader>bc", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>")
+vim.keymap.set("n", "<leader>bl",
+  "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>")
+vim.keymap.set("n", '<leader>br', "<cmd>lua require'dap'.clear_breakpoints()<cr>")
+vim.keymap.set("n", '<leader>ba', '<cmd>Telescope dap list_breakpoints<cr>')
+vim.keymap.set("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>")
+vim.keymap.set("n", "<leader>dj", "<cmd>lua require'dap'.step_over()<cr>")
+vim.keymap.set("n", "<leader>dk", "<cmd>lua require'dap'.step_into()<cr>")
+vim.keymap.set("n", "<leader>do", "<cmd>lua require'dap'.step_out()<cr>")
+vim.keymap.set("n", '<leader>dd', function()
+  require('dap').disconnect(); require('dapui').close();
+end)
+vim.keymap.set("n", '<leader>dt', function()
+  require('dap').terminate(); require('dapui').close();
+end)

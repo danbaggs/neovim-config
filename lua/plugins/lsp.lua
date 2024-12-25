@@ -1,26 +1,20 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    event = "VeryLazy",
     dependencies = {
+      { "williamboman/mason.nvim" },
+      { "williamboman/mason-lspconfig.nvim" },
+      { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
+      { "saghen/blink.cmp" },
       {
-        "williamboman/mason.nvim",
-        build = ":MasonUpdate",
-        config = function()
-          require("mason").setup()
-        end,
-      },
-      {
-        "williamboman/mason-lspconfig.nvim",
-        dependencies = { "williamboman/mason.nvim" },
-        config = function()
-          require("mason-lspconfig").setup({
-            ensure_installed = {
-              "lua_ls",
-              "pyright",
-              "yamlls",
-            },
-          })
-        end,
+        "folke/lazydev.nvim",
+        ft = "lua", -- only load on lua files
+        opts = {
+          library = {
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          },
+        },
       },
       -- {
       --   "jay-babu/mason-null-ls.nvim", -- Add mason-null-ls for managing Ruff and other linters/formatters
@@ -39,24 +33,37 @@ return {
       --     })
       --   end,
       -- },
-      {
-        "saghen/blink.cmp"
-      },
-      {
-        "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
-        opts = {
-          library = {
-            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-          },
-        },
-      },
     },
     config = function()
+      require('mason').setup()
+      ---@diagnostic disable-next-line: missing-fields
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "bashls",
+          "lua_ls",
+          "pyright",
+          "yamlls",
+        },
+      })
+
+      require('mason-tool-installer').setup({
+        -- Install these linters, formatters, debuggers automatically
+        -- ensure_installed = {
+        --   'black',
+        --   'debugpy',
+        --   'flake8',
+        --   'isort',
+        --   'mypy',
+        --   'pylint',
+        -- },
+      })
+      vim.api.nvim_command('MasonToolsInstall')
+
       local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local lspconfig = require('lspconfig')
 
       -- Set up lua LSP
-      require('lspconfig').lua_ls.setup {
+      lspconfig.lua_ls.setup {
         capabilities = capabilities,
         settings = {
           Lua = {
@@ -70,10 +77,10 @@ return {
       }
 
       -- Set up yaml LSP
-      require('lspconfig').yamlls.setup { capabilities = capabilities }
+      lspconfig.yamlls.setup { capabilities = capabilities }
 
       -- Set up Pyright (Python LSP)
-      require('lspconfig').pyright.setup {
+      lspconfig.pyright.setup {
         capabilities = capabilities,
         -- settings = {
         --   python = {
@@ -102,6 +109,7 @@ return {
           end
         end,
       })
+
       -- Globally configure all LSP floating preview popups (like hover, signature help, etc)
       local open_floating_preview = vim.lsp.util.open_floating_preview
       ---@diagnostic disable-next-line: duplicate-set-field
