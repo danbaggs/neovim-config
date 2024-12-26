@@ -16,6 +16,12 @@ return {
           }
         },
         filters = {
+          custom =
+          { ".git",
+            "node_modules",
+            ".DS_Store",
+            ".cache",
+            ".gitattributes" },
           dotfiles = false,
           git_ignored = false
         },
