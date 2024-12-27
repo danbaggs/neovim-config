@@ -2,6 +2,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Half page up/down
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true }) -- Half page up
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true }) -- Half page down
+
 -- Sourcing files during development
 vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>") -- Reload init.lua when you're editting it
 vim.keymap.set("n", "<leader>x", ":.lua<CR>")                 -- Run the current .lua file
