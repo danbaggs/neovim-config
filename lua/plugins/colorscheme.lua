@@ -1,30 +1,34 @@
 return {
-  {
-    "shaunsingh/nord.nvim",
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("nord")
-      -- require("nord").load()
-    end,
-  },
   -- {
-  --   "catppuccin/nvim",
-  --   name = "catppuccin",
+  --   "shaunsingh/nord.nvim",
   --   priority = 1000,
   --   config = function()
-  --     vim.cmd.colorscheme("catppuccin-macchiato")
-  --     require("catppuccin").load()
+  --     vim.cmd.colorscheme("nord")
+  --     -- require("nord").load()
   --   end,
   -- },
+  {
+    "catppuccin/nvim",
+    -- name = "catppuccin",
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("catppuccin-frappe")
+      require("catppuccin").load()
+    end,
+  },
   -- {
   --   "folke/tokyonight.nvim",
   --   lazy = false,
   --   priority = 1000,
   --   config = function()
   --     vim.cmd.colorscheme("tokyonight")
+  --     require("tokyonight").setup({
+  --       style = "moon",
+  --       transparent = true,
+  --     })
   --     require("tokyonight").load()
   --   end,
-  -- }
+  -- },
   -- {
   --   "navarasu/onedark.nvim",
   --   priority = 1000, -- Ensure it loads first
