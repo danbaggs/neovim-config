@@ -12,7 +12,8 @@ vim.keymap.set("n", "<leader>x", ":.lua<CR>")                 -- Run the current
 vim.keymap.set("v", "<leader>x", ":lua<CR>")                  -- In Visual Mode, run the current line
 
 -- Buffer management
-vim.keymap.set("n", "gd", "<cmd>bdelete<CR>") -- Previous buffer
+vim.keymap.set("n", "gd", "<cmd>bdelete<CR>") -- Delete buffer
+vim.keymap.set("n", "gn", "<cmd>bnext<CR>")   -- Next buffer
 
 -- Code reference actions
 vim.keymap.set("n", "grn", vim.lsp.buf.rename)         -- Rename all instances of this item in the file
