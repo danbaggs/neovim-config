@@ -25,6 +25,7 @@ return {
       ---@diagnostic disable-next-line: missing-fields
       require("mason-lspconfig").setup({
         ensure_installed = {
+          "clangd",
           "dockerls",
           "bashls",
           "lua_ls",
@@ -63,6 +64,8 @@ return {
         },
       }
 
+      -- Set up c LSP
+      lspconfig.clangd.setup { capabilities = capabilities }
       -- Set up yaml LSP
       lspconfig.yamlls.setup { capabilities = capabilities }
 
