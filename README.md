@@ -2,12 +2,12 @@
 
 ## System prerequisites
 
-- Clipboard tool: `xclip` or `xsel` or `wl-clipboard`
-- Python3: Because obvs
-- Node.js: Some nvim plugins require this
-- sshfs: For remote file editing like VSCode Remote Explorer
-- ripgrep: For faster searching
-- fzf: For fuzzy finding all the things
+- **Clipboard tool**: `xclip` or `xsel` or `wl-clipboard`
+- **Python3**: Because obvs
+- **Node.js**: Some nvim plugins require this
+- **sshfs**: For remote file editing like VSCode Remote Explorer
+- **ripgrep**: For faster searching
+- **fzf**: For fuzzy finding all the things
 
 ## Directory structure
 
