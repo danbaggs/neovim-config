@@ -17,11 +17,11 @@ return {
         },
         filters = {
           custom =
-          { ".git",
-            "node_modules",
+          {
             ".DS_Store",
             ".cache",
-            ".gitattributes" },
+            ".gitattributes"
+          },
           dotfiles = false,
           git_ignored = false
         },

@@ -17,7 +17,8 @@ return {
             "%.git/",
             "%__pycache__/",
             "%.pytest_cache/",
-            "%.ruff_cache/"
+            "%.ruff_cache/",
+            "%.venv/"
           }
         },
         extensions = {
