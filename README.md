@@ -16,8 +16,8 @@ README.md
 init.lua
 lazy-lock.json
 ├── after/
-│   ├── ftplugin/
-│   │   └── <filetypes>.lua
+│   └── ftplugin/
+│       └── <filetypes>.lua
 ├── lua/
 │   ├── autocmds.lua
 │   ├── keymaps.lua
