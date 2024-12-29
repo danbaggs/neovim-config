@@ -15,10 +15,6 @@ return {
           },
         },
       },
-      -- {
-      --   "jay-babu/mason-null-ls.nvim", -- Add mason-null-ls for managing Ruff and other linters/formatters
-      --   dependencies = { "nvimtools/none-ls.nvim" },
-      -- },
     },
     config = function()
       require('mason').setup()
