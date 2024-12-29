@@ -12,9 +12,9 @@
 ## Directory structure
 
 ```
+README.md
 init.lua
 lazy-lock.json
-README.md
 ├── after/
 │   ├── ftplugin/
 │   │   └── <filetypes>.lua
