@@ -16,6 +16,7 @@ return {
           "git_rebase",
           "gitcommit",
           "gitignore",
+          "go",
           "helm",
           "html",
           "javascript",

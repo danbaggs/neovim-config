@@ -25,25 +25,30 @@ return {
       ---@diagnostic disable-next-line: missing-fields
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "clangd",
-          "dockerls",
-          "bashls",
-          "lua_ls",
-          "marksman",
-          "pyright",
-          "yamlls",
+          "bashls",   -- Bash
+          "clangd",   -- C
+          "dockerls", -- Docker
+          "gopls",    -- Go
+          "lua_ls",   -- Lua
+          "marksman", -- Markdown
+          "pyright",  -- Python
+          "yamlls",   -- YAML
         },
       })
 
       require('mason-tool-installer').setup({
         -- Install these linters, formatters, debuggers automatically
         ensure_installed = {
+          -- Python
           'black',
           'debugpy',
           'flake8',
           'isort',
           'mypy',
           'pylint',
+          -- Go
+          "gopls",
+          "delve",
         },
       })
       vim.api.nvim_command('MasonToolsInstall')
@@ -90,15 +95,9 @@ return {
         capabilities = capabilities,
       }
 
-      -- require("mason-null-ls").setup({
-      --     ensure_installed = { "ruff" }, -- Ensure Ruff is installed
-      --   })
-      -- local null_ls = require("null-ls")
-      -- null_ls.setup({
-      --   sources = {
-      --     null_ls.builtins.diagnostics.ruff, -- Add Ruff as a linter
-      --   },
-      -- })
+      lspconfig.gopls.setup {
+        capabilities = capabilities,
+      }
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
