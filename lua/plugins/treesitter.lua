@@ -11,6 +11,7 @@ return {
           "bash",
           "c",
           "csv",
+          "diff",
           "dockerfile",
           "editorconfig",
           "git_rebase",

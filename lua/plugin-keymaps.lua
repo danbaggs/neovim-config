@@ -18,5 +18,5 @@ vim.keymap.set({ "n", "v" }, "<C-/>", ":CommentToggle<cr>")
 vim.keymap.set("n", "<leader>gb", ":GitBlameToggle<CR>") -- toggle git blame
 
 -- Copilot
-vim.keymap.set("n", "<leader>cpy", ":Copilot enable<CR>")
-vim.keymap.set("n", "<leader>cpn", ":Copilot disable<CR>")
+vim.keymap.set("n", "<leader>cpe", ":Copilot enable<CR>")
+vim.keymap.set("n", "<leader>cpd", ":Copilot disable<CR>")
