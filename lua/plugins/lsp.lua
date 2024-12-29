@@ -71,6 +71,7 @@ return {
 
       -- Set up c LSP
       lspconfig.clangd.setup { capabilities = capabilities }
+
       -- Set up yaml LSP
       lspconfig.yamlls.setup { capabilities = capabilities }
 
@@ -91,10 +92,12 @@ return {
         },
       }
 
+      -- Set up ruff formatter and linter
       lspconfig.ruff.setup {
         capabilities = capabilities,
       }
 
+      -- Set up Go LSP
       lspconfig.gopls.setup {
         capabilities = capabilities,
       }

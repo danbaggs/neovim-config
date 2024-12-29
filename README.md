@@ -4,6 +4,7 @@
 
 - **Clipboard tool**: `xclip` or `xsel` or `wl-clipboard`
 - **Python3**: Because obvs
+- **Go**: For... Go...
 - **Node.js**: Some nvim plugins require this
 - **sshfs**: For remote file editing like VSCode Remote Explorer
 - **ripgrep**: For faster searching

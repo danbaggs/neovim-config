@@ -5,7 +5,6 @@ return {
   -- event = 'VeryLazy',
   main = "ibl",
   config = function()
-    require("ibl").setup({})
     local highlight = {
       "RainbowRed",
       "RainbowYellow",
@@ -29,14 +28,17 @@ return {
     end)
 
     vim.g.rainbow_delimiters = { highlight = highlight }
-    require("ibl").setup { scope = { highlight = highlight } }
+    require("ibl").setup {
+      scope = {
+        highlight = highlight
+      },
+      indent = {
+        -- highlight = highlight,
+        char = "▏",
+        tab_char = "▍"
+      }
+    }
 
     hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
   end,
-  opts = {
-    enabled = true,
-    indent = {
-      char = '|',
-    },
-  },
 }
