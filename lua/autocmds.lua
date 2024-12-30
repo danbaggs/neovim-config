@@ -15,3 +15,10 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.opt.relativenumber = false
   end,
 })
+
+vim.api.nvim_create_augroup("JsonAutoFormat", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = "JsonAutoFormat",
+  pattern = "json",
+  command = "%!jq",
+})

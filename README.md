@@ -6,6 +6,7 @@
 - **Python3**: Because obvs
 - **Go**: For... Go...
 - **Node.js**: Some nvim plugins require this
+- **jq**: For nice json formatting
 - **sshfs**: For remote file editing like VSCode Remote Explorer
 - **ripgrep**: For faster searching
 - **fzf**: For fuzzy finding all the things
