@@ -4,8 +4,23 @@ return {
     dependencies = {
       { "williamboman/mason.nvim" },
       { "williamboman/mason-lspconfig.nvim" },
-      { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
+      { "WhoIsSethDaniel/mason-tool-installer.nvim" },
       { "saghen/blink.cmp" },
+      {
+        "stevearc/conform.nvim",
+        opts = {
+          formatters_by_ft = {
+            bash = { "beautysh" },
+            c = { "clang-format" },
+            go = { "crlfmt" },
+            lua = { lsp_format = "prefer" },
+            markdown = { "markdownfmt" },
+            python = { "ruff_fix", "ruff_organize_imports", "ruff_format", lsp_format = "first" },
+            yaml = { "yamlfmt" },
+          },
+        },
+      },
+
       {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files
@@ -17,7 +32,7 @@ return {
       },
     },
     config = function()
-      require('mason').setup()
+      require("mason").setup()
       ---@diagnostic disable-next-line: missing-fields
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -32,47 +47,47 @@ return {
         },
       })
 
-      require('mason-tool-installer').setup({
+      require("mason-tool-installer").setup({
         -- Install these linters, formatters, debuggers automatically
         ensure_installed = {
           -- Python
-          'black',
-          'debugpy',
-          'flake8',
-          'isort',
-          'mypy',
-          'pylint',
+          "black",
+          "debugpy",
+          "flake8",
+          "isort",
+          "mypy",
+          "pylint",
           -- Go
           "gopls",
           "delve",
         },
       })
-      vim.api.nvim_command('MasonToolsInstall')
+      vim.api.nvim_command("MasonToolsInstall")
 
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
-      local lspconfig = require('lspconfig')
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
+      local lspconfig = require("lspconfig")
 
       -- Set up lua LSP
-      lspconfig.lua_ls.setup {
+      lspconfig.lua_ls.setup({
         capabilities = capabilities,
         settings = {
           Lua = {
             diagnostics = {
               -- Get the language server to recognize the `vim` global
-              globals = { 'vim' },
+              globals = { "vim" },
             },
           },
         },
-      }
+      })
 
       -- Set up c LSP
-      lspconfig.clangd.setup { capabilities = capabilities }
+      lspconfig.clangd.setup({ capabilities = capabilities })
 
       -- Set up yaml LSP
-      lspconfig.yamlls.setup { capabilities = capabilities }
+      lspconfig.yamlls.setup({ capabilities = capabilities })
 
       -- Set up Pyright (Python LSP)
-      lspconfig.pyright.setup {
+      lspconfig.pyright.setup({
         capabilities = capabilities,
         settings = {
           pyright = {
@@ -82,33 +97,35 @@ return {
           python = {
             analysis = {
               -- Ignore all files for analysis to exclusively use Ruff for linting
-              ignore = { '*' },
+              ignore = { "*" },
             },
           },
         },
-      }
+      })
 
       -- Set up ruff formatter and linter
-      lspconfig.ruff.setup {
+      lspconfig.ruff.setup({
         capabilities = capabilities,
-      }
+      })
 
       -- Set up Go LSP
-      lspconfig.gopls.setup {
+      lspconfig.gopls.setup({
         capabilities = capabilities,
-      }
+      })
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
-          if not client then return end
+          if not client then
+            return
+          end
 
           if client.supports_method("textDocument/formatting") then
             -- Format current buffer on save
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = args.buf,
               callback = function()
-                vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+                require("conform").format({ bufnr = args.buf, id = client.id })
               end,
             })
           end
@@ -125,5 +142,5 @@ return {
         return open_floating_preview(contents, syntax, opts, ...)
       end
     end,
-  }
+  },
 }
