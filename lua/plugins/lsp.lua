@@ -16,6 +16,7 @@ return {
             lua = { lsp_format = "prefer" },
             markdown = { "markdownfmt" },
             python = { "ruff_fix", "ruff_organize_imports", "ruff_format", lsp_format = "first" },
+            toml = { "taplo" },
             yaml = { "yamlfmt" },
           },
         },
