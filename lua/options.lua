@@ -18,3 +18,5 @@ vim.opt.termguicolors = true -- enable true color support
 -- Configure how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+vim.g.python3_host_prog = '~/.config/nvim/.venv/bin/python3'
