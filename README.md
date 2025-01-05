@@ -6,10 +6,17 @@
 - **Python3**: Because obvs
 - **Go**: For... Go...
 - **Node.js**: Some nvim plugins require this
+- **Rust**: Some formatters require this
 - **jq**: For nice json formatting
 - **sshfs**: For remote file editing like VSCode Remote Explorer
 - **ripgrep**: For faster searching
 - **fzf**: For fuzzy finding all the things
+
+## Add the following to your $PATH
+
+```
+/home/<user>/.local/bin:/home/<user>/.nvm/versions/node:/usr/local/go/bin:/home/<user>/go/bin:/opt/nvim-linux64/bin:/home/<user>/.cargo/bin:/home/<user>/.local/bin
+```
 
 ## Directory structure
 
