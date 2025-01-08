@@ -58,11 +58,11 @@ vim.keymap.set("n", '<leader>dt', function()
   require('dap').terminate(); require('dapui').close();
 end)
 
--- open a terminal in a window of 40% of the current view width
+-- open a terminal in a window of 30% of the current view width
 -- useful for ultrawide dev
 vim.keymap.set("n", "<space>st", function()
   vim.cmd.vnew()
   vim.cmd.term()
-  vim.api.nvim_win_set_width(0, math.floor(vim.o.columns * 0.4))
+  vim.api.nvim_win_set_width(0, math.floor(vim.o.columns * 0.3))
 end
 )
