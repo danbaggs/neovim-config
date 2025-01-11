@@ -63,6 +63,6 @@ end)
 vim.keymap.set("n", "<space>st", function()
   vim.cmd.vnew()
   vim.cmd.term()
-  vim.api.nvim_win_set_width(0, math.floor(vim.o.columns * 0.3))
+  vim.api.nvim_win_set_width(0, math.floor(vim.o.columns * 0.33))
 end
 )
