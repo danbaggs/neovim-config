@@ -2,9 +2,9 @@ return {
   {
     'echasnovski/mini.nvim',
     config = function()
-      require "mini.animate".setup({
-        scroll = { enable = false }
-      })
+      -- require "mini.animate".setup({
+      --   scroll = { enable = false }
+      -- })
       require "mini.icons".setup()
       require "mini.diff".setup()
       require "mini.git".setup()
