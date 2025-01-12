@@ -58,6 +58,7 @@ return {
           "isort",
           "mypy",
           "pylint",
+          "pyright",
           -- Go
           "gopls",
           "delve",
