@@ -1,4 +1,3 @@
--- General purpose linters
 return {
   -- https://github.com/mfussenegger/nvim-lint
   'mfussenegger/nvim-lint',
