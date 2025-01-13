@@ -12,6 +12,11 @@
 - **ripgrep**: For faster searching
 - **fzf**: For fuzzy finding all the things
 
+## Install the following node modules
+```
+npm install -g azure-pipelines-language-server
+```
+
 ## Add the following to your $PATH
 
 ```
