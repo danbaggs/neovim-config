@@ -37,7 +37,6 @@ return {
       ---@diagnostic disable-next-line: missing-fields
       require("mason-lspconfig").setup({
         ensure_installed = {
-          -- "azure_pipelines_ls", -- Azure Pipelines
           "bashls",   -- Bash
           "clangd",   -- C
           "dockerls", -- Docker
@@ -52,7 +51,6 @@ return {
       require("mason-tool-installer").setup({
         -- Install these linters, formatters, debuggers automatically
         ensure_installed = {
-          -- "azure_pipelines_ls",
           -- Python
           "black",
           "debugpy",
@@ -132,24 +130,6 @@ return {
       lspconfig.gopls.setup({
         capabilities = capabilities,
       })
-
-      -- Set up Azure Pipelines LSP
-      -- lspconfig.azure_pipelines_ls.setup {
-      --   settings = {
-      --     yaml = {
-      --       schemas = {
-      --         ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
-      --           "/azure-pipeline*.y*l",
-      --           "/*.azure*",
-      --           "Azure-Pipelines/**/*.y*l",
-      --           "Pipelines/*.y*l",
-      --           "CI/*.y*l",
-      --           "CD/*.y*l",
-      --         },
-      --       },
-      --     },
-      --   },
-      -- }
 
 
       vim.api.nvim_create_autocmd("LspAttach", {
