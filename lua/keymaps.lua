@@ -5,6 +5,8 @@ vim.g.maplocalleader = " "
 -- Half page up/down
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true }) -- Half page up
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true }) -- Half page down
+vim.keymap.set("n", "n", "nzzzv", { noremap = true })       -- Jump to next result
+vim.keymap.set("n", "N", "Nzzzv", { noremap = true })       -- Jump to previous result
 
 -- Sourcing files during development
 vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>") -- Reload init.lua when you're editting it
