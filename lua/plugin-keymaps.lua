@@ -3,9 +3,9 @@
 --Telescope keymaps in telescope.lua
 
 -- Nvim-tree
-vim.keymap.set("n", "<leader>ee", ":NvimTreeToggle<CR>")   -- toggle file explorer
-vim.keymap.set("n", "<leader>er", ":NvimTreeFocus<CR>")    -- toggle focus to file explorer
-vim.keymap.set("n", "<leader>ef", ":NvimTreeFindFile<CR>") -- find file in file explorer
+-- vim.keymap.set("n", "<leader>ee", ":NvimTreeToggle<CR>")   -- toggle file explorer
+-- vim.keymap.set("n", "<leader>er", ":NvimTreeFocus<CR>")    -- toggle focus to file explorer
+-- vim.keymap.set("n", "<leader>ef", ":NvimTreeFindFile<CR>") -- find file in file explorer
 
 -- Oil file browser
 vim.keymap.set("n", "-", "<CMD>Oil<CR>")
