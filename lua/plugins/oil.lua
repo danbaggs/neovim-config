@@ -13,6 +13,10 @@ return {
           columns = { "icon" },
           view_options = {
             show_hidden = true,
+            is_always_hidden = function(name, bufnr)
+              local m = name:match("^%.DS_Store")
+              return m ~= nil
+            end,
           },
         }
       )
