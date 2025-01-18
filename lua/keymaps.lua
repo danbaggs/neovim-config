@@ -8,14 +8,20 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true }) -- Half page down
 vim.keymap.set("n", "n", "nzzzv", { noremap = true })       -- Jump to next result
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true })       -- Jump to previous result
 
+-- Window movement
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
 -- Sourcing files during development
 vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>") -- Reload init.lua when you're editting it
 vim.keymap.set("n", "<leader>x", ":.lua<CR>")                 -- Run the current .lua file
 vim.keymap.set("v", "<leader>x", ":lua<CR>")                  -- In Visual Mode, run the current line
 
 -- Buffer management
-vim.keymap.set("n", "gd", "<cmd>bdelete<CR>") -- Delete buffer
-vim.keymap.set("n", "gn", "<cmd>bnext<CR>")   -- Next buffer
+vim.keymap.set("n", "gd", "<cmd>bdelete<CR>")  -- Delete buffer
+vim.keymap.set("n", "<C-6>", "<cmd>bnext<CR>") -- Next buffer
 
 -- Code reference actions
 vim.keymap.set("n", "grn", vim.lsp.buf.rename)         -- Rename all instances of this item in the file
@@ -25,14 +31,7 @@ vim.keymap.set("n", "grd", vim.lsp.buf.definition)     -- Go to the definition o
 vim.keymap.set("n", "gri", vim.lsp.buf.implementation) -- Go to the implementation of the current element
 
 -- Clear highlighting
-vim.keymap.set("n", "<leader>/", "<cmd>noh<CR>") -- Clear all highlighting
-
--- Diff keymaps
-vim.keymap.set("n", "<leader>cc", ":diffput<CR>")   -- put diff from current to other during diff
-vim.keymap.set("n", "<leader>cj", ":diffget 1<CR>") -- get diff from left (local) during merge
-vim.keymap.set("n", "<leader>ck", ":diffget 3<CR>") -- get diff from right (remote) during merge
-vim.keymap.set("n", "<leader>cn", "]c")             -- next diff hunk
-vim.keymap.set("n", "<leader>cp", "[c")             -- previous diff hunk
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>") -- Clear all highlighting
 
 -- Quickfix keymaps
 vim.keymap.set("n", "<leader>qo", ":copen<CR>")  -- open quickfix list
