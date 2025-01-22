@@ -14,6 +14,7 @@ return {
             c = { "clang-format" },
             go = { "crlfmt" },
             lua = { lsp_format = "prefer" },
+            javascript = { "prettierd", "prettier", stop_after_first = true },
             markdown = { "markdownfmt" },
             python = { "ruff_fix", "ruff_organize_imports", "ruff_format", lsp_format = "first" },
             toml = { "taplo" },
@@ -44,6 +45,7 @@ return {
           "lua_ls",   -- Lua
           "marksman", -- Markdown
           "pyright",  -- Python
+          "ts_ls",    -- Javascript/Typescript
           "yamlls",   -- YAML
         },
       })
@@ -62,6 +64,9 @@ return {
           -- Go
           "gopls",
           "delve",
+          -- JS/TS
+          "prettier",
+          "prettierd"
         },
       })
       vim.api.nvim_command("MasonToolsInstall")
@@ -131,6 +136,10 @@ return {
         capabilities = capabilities,
       })
 
+      -- Set up Javascript/Typescript LSP
+      lspconfig.ts_ls.setup({
+        capabilities = capabilities,
+      })
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)

@@ -6,6 +6,8 @@
 - **Python3**: Because obvs
 - **Go**: For... Go...
 - **Node.js**: Some nvim plugins require this
+- **NPM Packages**: For JS and TS dev
+    - `npm install -g typescript typescript-language-server ts-node`
 - **Rust**: Some formatters require this
 - **jq**: For nice json formatting
 - **sshfs**: For remote file editing like VSCode Remote Explorer
