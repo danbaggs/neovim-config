@@ -5,7 +5,7 @@
 - **Clipboard tool**: `xclip` or `xsel` or `wl-clipboard`
 - **Python3**: Because obvs
 - **jq**: For nice json formatting
-- **sshfs**: For remote file editing like VSCode Remote Explorer
+<!-- - **sshfs**: For remote file editing like VSCode Remote Explorer -->
 <!-- - **Go**: For... Go... -->
 <!-- - **Node.js**: Some nvim plugins require this -->
 <!-- - **Rust**: Some formatters require this -->
@@ -47,7 +47,7 @@ echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez
 
 # Install all required apt packages
 echo "Installing apt packages"
-APT_APPS="python-is-python3 ripgrep libxcb-cursor0 fzf git-all xclip python3-venv python3-pip python3-ruff python3-neovim fd-find wezterm"
+APT_APPS="sshfs python-is-python3 ripgrep libxcb-cursor0 fzf git-all xclip python3-venv python3-pip python3-ruff python3-neovim fd-find wezterm"
 sudo apt-get update
 sudo apt-get install -y $APT_APPS
 

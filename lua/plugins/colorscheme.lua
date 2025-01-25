@@ -14,7 +14,7 @@ return {
       vim.cmd.colorscheme("catppuccin")
       require("catppuccin").setup({
         flavour = "frappe",
-        transparent_background = true,
+        transparent_background = false,
         styles = {
           comments = { "italic" },
           functions = { "bold" },
