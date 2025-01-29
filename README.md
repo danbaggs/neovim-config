@@ -40,6 +40,8 @@ echo "Installing Rust"
 curl -LO https://sh.rustup.rs/
 sudo ./rustup-init.sh
 
+cargo install tex-fmt
+
 # Add wezterm gpg key
 echo "Adding Wezterm gpg key"
 curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
