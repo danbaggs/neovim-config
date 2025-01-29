@@ -211,14 +211,14 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "beautysh", specifier = "==6.2.1" },
-    { name = "black", specifier = "==24.10.0" },
-    { name = "clang-format", specifier = "==19.1.6" },
-    { name = "isort", specifier = "==5.13.2" },
-    { name = "pip", specifier = "==24.3.1" },
-    { name = "pynvim", specifier = "==0.5.2" },
-    { name = "ruff", specifier = "==0.8.5" },
-    { name = "yamlfix", specifier = "==1.17.0" },
+    { name = "beautysh", specifier = ">=6.2.1" },
+    { name = "black", specifier = ">=24.10.0" },
+    { name = "clang-format", specifier = ">=19.1.6" },
+    { name = "isort", specifier = ">=5.13.2" },
+    { name = "pip", specifier = ">=24.3.1" },
+    { name = "pynvim", specifier = ">=0.5.2" },
+    { name = "ruff", specifier = ">=0.8.5" },
+    { name = "yamlfix", specifier = ">=1.17.0" },
 ]
 
 [[package]]
