@@ -40,6 +40,8 @@ echo "Installing Rust"
 curl -LO https://sh.rustup.rs/
 sudo ./rustup-init.sh
 
+# Install Latex tool
+echo "Installing Latex tool"
 cargo install tex-fmt
 
 # Add wezterm gpg key
