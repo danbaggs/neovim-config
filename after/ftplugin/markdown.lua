@@ -9,4 +9,4 @@ vim.keymap.set("n", "k", "gk")
 
 -- Spell check
 vim.opt.spelllang = 'en_gb'
-vim.opt.spell = true
+vim.opt.spell = false
