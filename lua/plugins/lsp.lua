@@ -14,7 +14,6 @@ return {
             c = { "clang-format" },
             go = { "crlfmt" },
             lua = { lsp_format = "prefer" },
-            latex = { "tex-fmt" },
             javascript = { "prettierd", "prettier", stop_after_first = true },
             markdown = { "markdownfmt" },
             python = { "ruff_fix", "ruff_organize_imports", "ruff_format", lsp_format = "first" },
@@ -44,7 +43,6 @@ return {
           "dockerls", -- Docker
           "gopls",    -- Go
           "lua_ls",   -- Lua
-          "ltex",     -- Latex
           "marksman", -- Markdown
           "pyright",  -- Python
           "ts_ls",    -- Javascript/Typescript
@@ -141,15 +139,6 @@ return {
       -- Set up Javascript/Typescript LSP
       lspconfig.ts_ls.setup({
         capabilities = capabilities,
-      })
-      -- Set up Latex LSP
-      lspconfig.ltex.setup({
-        capabilities = capabilities,
-        settings = {
-          ltex = {
-            language = "en-GB",
-          },
-        }
       })
 
       vim.api.nvim_create_autocmd("LspAttach", {

@@ -22,7 +22,6 @@ return {
           "html",
           "javascript",
           "json",
-          "latex",
           "lua",
           "luadoc",
           "markdown",
