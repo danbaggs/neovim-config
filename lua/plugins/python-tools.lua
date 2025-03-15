@@ -5,7 +5,7 @@ return {
     ft = 'python',
   },
   {
-    "fisadev/vim-isort",
+    "stsewd/isort.nvim",
     ft = "python",
   },
   {
