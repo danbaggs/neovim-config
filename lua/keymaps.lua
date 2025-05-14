@@ -30,6 +30,16 @@ vim.keymap.set("n", "grr", vim.lsp.buf.references)     -- Find all references of
 vim.keymap.set("n", "grd", vim.lsp.buf.definition)     -- Go to the definition of the current element
 vim.keymap.set("n", "gri", vim.lsp.buf.implementation) -- Go to the implementation of the current element
 
+-- Keymap to show diagnostics at the current line with virtual text
+vim.keymap.set('n', 'grl', function()
+  vim.diagnostic.open_float(nil, {
+    focus = false,
+    scope = 'line',
+    severity_sort = true,
+    source = true
+  })
+end, { desc = 'Show LSP diagnostics as virtual text' })
+
 -- Clear highlighting
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>") -- Clear all highlighting
 
