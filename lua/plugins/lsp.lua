@@ -17,6 +17,7 @@ return {
             javascript = { "prettierd", "prettier", stop_after_first = true },
             markdown = { "markdownfmt" },
             python = { "ruff_fix", "ruff_organize_imports", "ruff_format", lsp_format = "first" },
+            rust = { "rustfmt" },
             toml = { "taplo" },
             yaml = { "yamlfix" },
           },
