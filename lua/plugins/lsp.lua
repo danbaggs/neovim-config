@@ -38,15 +38,16 @@ return {
       ---@diagnostic disable-next-line: missing-fields
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "bashls",   -- Bash
-          "clangd",   -- C
-          "dockerls", -- Docker
-          "gopls",    -- Go
-          "lua_ls",   -- Lua
-          "marksman", -- Markdown
-          "pyright",  -- Python
-          "ts_ls",    -- Javascript/Typescript
-          "yamlls",   -- YAML
+          "bashls",        -- Bash
+          "clangd",        -- C
+          "dockerls",      -- Docker
+          "gopls",         -- Go
+          "lua_ls",        -- Lua
+          "marksman",      -- Markdown
+          "pyright",       -- Python
+          "rust_analyzer", -- Rust
+          "ts_ls",         -- Javascript/Typescript
+          "yamlls",        -- YAML
         },
       })
 
@@ -72,10 +73,9 @@ return {
       vim.api.nvim_command("MasonToolsInstall")
 
       local capabilities = require("blink.cmp").get_lsp_capabilities()
-      local lspconfig = require("lspconfig")
 
       -- Set up lua LSP
-      lspconfig.lua_ls.setup({
+      vim.lsp.config("lua_ls", {
         capabilities = capabilities,
         settings = {
           Lua = {
@@ -87,11 +87,26 @@ return {
         },
       })
 
+      -- Set up rust LSP
+      vim.lsp.config("rust_analyzer", {
+        capabilities = capabilities,
+        settings = {
+          ['rust-analyzer'] = {
+            check = {
+              command = "clippy",
+            },
+            diagnostics = {
+              enable = true,
+            }
+          }
+        }
+      })
+
       -- Set up c LSP
-      lspconfig.clangd.setup({ capabilities = capabilities })
+      vim.lsp.config("clangd", { capabilities = capabilities })
 
       -- Set up yaml LSP
-      lspconfig.yamlls.setup({
+      vim.lsp.config("yamlls", {
         capabilities = capabilities,
         settings = {
           yaml = {
@@ -110,7 +125,7 @@ return {
       })
 
       -- Set up Pyright (Python LSP)
-      lspconfig.pyright.setup({
+      vim.lsp.config("pyright", {
         capabilities = capabilities,
         settings = {
           pyright = {
@@ -127,17 +142,17 @@ return {
       })
 
       -- Set up ruff formatter and linter
-      lspconfig.ruff.setup({
+      vim.lsp.config("ruff", {
         capabilities = capabilities,
       })
 
       -- Set up Go LSP
-      lspconfig.gopls.setup({
+      vim.lsp.config("gopls", {
         capabilities = capabilities,
       })
 
       -- Set up Javascript/Typescript LSP
-      lspconfig.ts_ls.setup({
+      vim.lsp.config("ts_ls", {
         capabilities = capabilities,
       })
 
