@@ -146,6 +146,7 @@ return {
       vim.lsp.config("ruff", {
         capabilities = capabilities,
       })
+      vim.lsp.enable("ruff")
 
       -- Set up Go LSP
       vim.lsp.config("gopls", {
