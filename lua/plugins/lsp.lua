@@ -56,7 +56,6 @@ return {
         -- Install these linters, formatters, debuggers automatically
         ensure_installed = {
           -- Python
-          "black",
           "debugpy",
           "flake8",
           "isort",

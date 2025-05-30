@@ -1,10 +1,6 @@
 -- Python formatter
 return {
   {
-    'psf/black',
-    ft = 'python',
-  },
-  {
     "stsewd/isort.nvim",
     ft = "python",
   },
