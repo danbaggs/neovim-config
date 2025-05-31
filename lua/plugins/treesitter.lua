@@ -9,7 +9,6 @@ return {
         ensure_installed = {
           "arduino",
           "bash",
-          "c",
           "csv",
           "diff",
           "dockerfile",

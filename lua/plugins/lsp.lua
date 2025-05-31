@@ -11,7 +11,6 @@ return {
         opts = {
           formatters_by_ft = {
             bash = { "beautysh" },
-            c = { "clang-format" },
             go = { "crlfmt" },
             lua = { lsp_format = "prefer" },
             javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -40,7 +39,6 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "bashls",        -- Bash
-          "clangd",        -- C
           "dockerls",      -- Docker
           "gopls",         -- Go
           "lua_ls",        -- Lua
@@ -101,9 +99,6 @@ return {
           }
         }
       })
-
-      -- Set up c LSP
-      vim.lsp.config("clangd", { capabilities = capabilities })
 
       -- Set up yaml LSP
       vim.lsp.config("yamlls", {
