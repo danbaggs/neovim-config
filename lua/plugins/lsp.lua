@@ -14,6 +14,7 @@ return {
             go = { "crlfmt" },
             lua = { lsp_format = "prefer" },
             javascript = { "prettierd", "prettier", stop_after_first = true },
+            json = { "jq" },
             markdown = { "markdownfmt" },
             python = { "ruff_fix", "ruff_organize_imports", "ruff_format", lsp_format = "first" },
             rust = { "rustfmt" },
@@ -42,6 +43,7 @@ return {
           "dockerls",      -- Docker
           "gopls",         -- Go
           "lua_ls",        -- Lua
+          "jsonls",        -- JSON
           "marksman",      -- Markdown
           "pyright",       -- Python
           "rust_analyzer", -- Rust
@@ -65,7 +67,8 @@ return {
           "delve",
           -- JS/TS
           "prettier",
-          "prettierd"
+          "prettierd",
+          "jsonls"
         },
       })
       vim.api.nvim_command("MasonToolsInstall")
@@ -146,6 +149,13 @@ return {
       vim.lsp.config("gopls", {
         capabilities = capabilities,
       })
+      vim.lsp.enable("gopls")
+
+      -- Set up JSON LSP
+      vim.lsp.config("jsonls", {
+        capabilities = capabilities,
+      })
+      vim.lsp.enable("jsonls")
 
       -- Set up Javascript/Typescript LSP
       vim.lsp.config("ts_ls", {
