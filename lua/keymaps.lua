@@ -2,6 +2,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Escape out of terminals with double tap
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
+
 -- Half page up/down
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true }) -- Half page up
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true }) -- Half page down
