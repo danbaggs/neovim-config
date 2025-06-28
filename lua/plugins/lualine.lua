@@ -29,6 +29,7 @@ return {
           }
         }
       },
-    }
+      lualine_x = { 'fileformat', 'filetype' },
+    },
   }
 }
