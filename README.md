@@ -5,6 +5,7 @@
 - **Clipboard tool**: `xclip` or `xsel` or `wl-clipboard`
 - **Python3**: Because obvs
 - **jq**: For nice json formatting
+- **Protobuf**: For protobuf support
 <!-- - **sshfs**: For remote file editing like VSCode Remote Explorer -->
 <!-- - **Go**: For... Go... -->
 <!-- - **Node.js**: Some nvim plugins require this -->
