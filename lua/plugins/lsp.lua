@@ -11,6 +11,7 @@ return {
         opts = {
           formatters_by_ft = {
             bash = { "beautysh" },
+            proto = { "buf" },
             go = { "crlfmt" },
             lua = { lsp_format = "prefer" },
             javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -40,6 +41,7 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "bashls",        -- Bash
+          "buf_ls",        -- Protobuf
           "dockerls",      -- Docker
           "gopls",         -- Go
           "lua_ls",        -- Lua
@@ -138,6 +140,12 @@ return {
           },
         },
       })
+
+      -- Set up protobuf formatter and linter
+      vim.lsp.config("buf_ls", {
+        capabilities = capabilities,
+      })
+      vim.lsp.enable("buf_ls")
 
       -- Set up ruff formatter and linter
       vim.lsp.config("ruff", {
