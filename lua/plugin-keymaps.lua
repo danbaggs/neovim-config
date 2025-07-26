@@ -11,3 +11,6 @@ vim.keymap.set({ "n", "v" }, "<leader><leader>c", ":CommentToggle<cr>")
 
 -- Git-blame
 vim.keymap.set("n", "<leader>gb", ":GitBlameToggle<CR>") -- toggle git blame
+
+-- Twilight Code Block Highlighting
+vim.keymap.set("n", "<leader>tw", ":Twilight<CR>")

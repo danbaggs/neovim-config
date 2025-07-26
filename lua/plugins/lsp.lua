@@ -77,6 +77,8 @@ return {
 
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+      require('render-markdown').setup({ latex = { enabled = false } })
+
       -- Set up lua LSP
       vim.lsp.config("lua_ls", {
         capabilities = capabilities,
