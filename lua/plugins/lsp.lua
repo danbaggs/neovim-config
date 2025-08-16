@@ -91,6 +91,7 @@ return {
           },
         },
       })
+      vim.lsp.enable("lua_ls")
 
       -- Set up rust LSP
       vim.lsp.config("rust_analyzer", {
@@ -106,6 +107,7 @@ return {
           }
         }
       })
+      vim.lsp.enable("rust_analyzer")
 
       -- Set up yaml LSP
       vim.lsp.config("yamlls", {
@@ -125,6 +127,7 @@ return {
           },
         },
       })
+      vim.lsp.enable("yamlls")
 
       -- Set up Pyright (Python LSP)
       vim.lsp.config("pyright", {
@@ -142,6 +145,7 @@ return {
           },
         },
       })
+      vim.lsp.enable("pyright")
 
       -- Set up protobuf formatter and linter
       vim.lsp.config("buf_ls", {
