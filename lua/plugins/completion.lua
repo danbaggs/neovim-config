@@ -4,7 +4,7 @@ return {
     -- optional: provides snippets for the snippet source
     dependencies = 'rafamadriz/friendly-snippets',
     -- use a release tag to download pre-built binaries
-    version = 'v0.*',
+    version = 'v1.*',
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
@@ -25,7 +25,6 @@ return {
         },
       },
       appearance = {
-        use_nvim_cmp_as_default = true,
         nerd_font_variant = 'mono'
       },
       signature = { enabled = true } -- experimental signature help support
