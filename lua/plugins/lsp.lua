@@ -73,8 +73,6 @@ return {
     })
     vim.api.nvim_command("MasonToolsInstall")
 
-    require('render-markdown').setup({ latex = { enabled = false } })
-
     -- Set up lua LSP
     vim.lsp.config("lua_ls", {
       settings = {
