@@ -1,14 +1,18 @@
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamedplus" -- use system clipboard for yank/put
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.expandtab = true
 vim.opt.autoindent = true
+vim.opt.breakindent = true
 vim.opt.list = true -- show tab characters and trailing whitespace
 vim.opt.cursorline = true
+vim.opt.showmode = false
+vim.opt.scrolloff = 5
 
 -- Line Wrapping
 vim.opt.wrap = false
 vim.opt.signcolumn = "yes"
+
 -- Searching
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
