@@ -73,13 +73,10 @@ return {
     })
     vim.api.nvim_command("MasonToolsInstall")
 
-    local capabilities = require("blink.cmp").get_lsp_capabilities()
-
     require('render-markdown').setup({ latex = { enabled = false } })
 
     -- Set up lua LSP
     vim.lsp.config("lua_ls", {
-      capabilities = capabilities,
       settings = {
         Lua = {
           diagnostics = {
@@ -93,7 +90,6 @@ return {
 
     -- Set up rust LSP
     vim.lsp.config("rust_analyzer", {
-      capabilities = capabilities,
       settings = {
         ['rust-analyzer'] = {
           check = {
@@ -109,7 +105,6 @@ return {
 
     -- Set up yaml LSP
     vim.lsp.config("yamlls", {
-      capabilities = capabilities,
       settings = {
         yaml = {
           schemas = {
@@ -129,7 +124,6 @@ return {
 
     -- Set up Pyright (Python LSP)
     vim.lsp.config("pyright", {
-      capabilities = capabilities,
       settings = {
         pyright = {
           -- Using Ruff's import organizer
@@ -146,33 +140,19 @@ return {
     vim.lsp.enable("pyright")
 
     -- Set up protobuf formatter and linter
-    vim.lsp.config("buf_ls", {
-      capabilities = capabilities,
-    })
     vim.lsp.enable("buf_ls")
 
     -- Set up ruff formatter and linter
-    vim.lsp.config("ruff", {
-      capabilities = capabilities,
-    })
     vim.lsp.enable("ruff")
 
     -- Set up Go LSP
-    vim.lsp.config("gopls", {
-      capabilities = capabilities,
-    })
     vim.lsp.enable("gopls")
 
     -- Set up JSON LSP
-    vim.lsp.config("jsonls", {
-      capabilities = capabilities,
-    })
     vim.lsp.enable("jsonls")
 
     -- Set up Javascript/Typescript LSP
-    vim.lsp.config("ts_ls", {
-      capabilities = capabilities,
-    })
+    vim.lsp.enable("ts_ls")
 
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
