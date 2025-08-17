@@ -24,7 +24,6 @@ return {
           },
         },
       },
-
       {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files
@@ -183,12 +182,12 @@ return {
             return
           end
 
-          if client.supports_method("textDocument/formatting") then
+          if client:supports_method("textDocument/formatting") then
             -- Format current buffer on save
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = args.buf,
               callback = function()
-                require("conform").format({ bufnr = args.buf, id = client.id })
+                require("conform").format({ bufnr = args.buf, id = client.id, lsp_format = "fallback" })
               end,
             })
           end
