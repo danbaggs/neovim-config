@@ -8,6 +8,7 @@ vim.opt.list = true -- show tab characters and trailing whitespace
 vim.opt.cursorline = true
 vim.opt.showmode = false
 vim.opt.scrolloff = 5
+vim.o.winborder = "rounded"
 
 -- Line Wrapping
 vim.opt.wrap = false
