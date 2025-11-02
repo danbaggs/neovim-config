@@ -5,14 +5,14 @@ return {
   config = function()
     -- Define a table of linters for each filetype (not extension).
     -- Additional linters can be found here: https://github.com/mfussenegger/nvim-lint#available-linters
-    require('lint').linters_by_ft = {
-      python = {
-        -- Uncomment whichever linters you prefer
-        'ruff',
-        -- 'mypy',
-        -- 'pylint',
-      }
-    }
+    -- require('lint').linters_by_ft = {
+    --   python = {
+    --     -- Uncomment whichever linters you prefer
+    --     'ruff',
+    --     -- 'mypy',
+    --     -- 'pylint',
+    --   }
+    -- }
 
     -- Automatically run linters after saving.  Use "InsertLeave" for more aggressive linting.
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
