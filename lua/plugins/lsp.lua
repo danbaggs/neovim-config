@@ -10,12 +10,13 @@ return {
       opts = {
         formatters_by_ft = {
           bash = { "beautysh" },
-          proto = { "buf" },
+          dockerfile = { "dockerfmt" },
           go = { "crlfmt" },
           lua = { lsp_format = "prefer" },
           javascript = { "prettierd", "prettier", stop_after_first = true },
           json = { "jq" },
           markdown = { "markdownfmt" },
+          proto = { "buf" },
           python = { "ruff_fix", "ruff_organize_imports", "ruff_format", lsp_format = "first" },
           rust = { "rustfmt" },
           toml = { "taplo" },
