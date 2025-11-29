@@ -25,3 +25,8 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.g.python3_host_prog = '~/.config/nvim/.venv/bin/python3'
+vim.filetype.add({
+  extension = {
+    tf = "terraform"
+  }
+})

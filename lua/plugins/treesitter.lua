@@ -15,6 +15,7 @@ return {
         "gitcommit",
         "gitignore",
         "go",
+        "hcl",
         "helm",
         "html",
         "javascript",
@@ -60,8 +61,8 @@ return {
       highlight = {
         enable = true,
         ---@diagnostic disable-next-line: unused-local
-        disable = function(lang, buf)       -- disable treesitter for files larger than [max_filesize] KB
-          local max_filesize = 512 * 1024   -- 512 KB
+        disable = function(lang, buf)     -- disable treesitter for files larger than [max_filesize] KB
+          local max_filesize = 512 * 1024 -- 512 KB
           ---@diagnostic disable-next-line: undefined-field
           local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
           if ok and stats and stats.size > max_filesize then

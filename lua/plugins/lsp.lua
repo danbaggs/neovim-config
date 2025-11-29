@@ -21,6 +21,10 @@ return {
           rust = { "rustfmt" },
           toml = { "taplo" },
           yaml = { "yamlfix" },
+          hcl = { "packer_fmt" },
+          terraform = { "terraform_fmt" },
+          tf = { "terraform_fmt" },
+          ["terraform-vars"] = { "terraform_fmt" },
         },
       },
     },
@@ -48,8 +52,10 @@ return {
         "marksman",      -- Markdown
         "pyright",       -- Python
         "rust_analyzer", -- Rust
-        "ts_ls",         -- Javascript/Typescript
-        "yamlls",        -- YAML
+        "tflint",
+        "terraformls",
+        "ts_ls",  -- Javascript/Typescript
+        "yamlls", -- YAML
       },
     })
 
@@ -69,10 +75,14 @@ return {
         -- JS/TS
         "prettier",
         "prettierd",
-        "jsonls"
+        "jsonls",
+        "terraform"
       },
     })
     vim.api.nvim_command("MasonToolsInstall")
+
+    vim.lsp.config('terraformls', {})
+    vim.lsp.enable("terraformls")
 
     -- Set up lua LSP
     vim.lsp.config("lua_ls", {
