@@ -125,6 +125,14 @@ return {
               "CI/*.y*l",
               "CD/*.y*l",
             },
+            ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] =
+            {
+              "**/*argo*/*workflow*.y*l",
+            },
+            ["https://raw.githubusercontent.com/argoproj/argo-events/master/api/jsonschema/schema.json"] = {
+              "**/*argo*/*event*.y*l",
+            },
+            ["kubernetes"] = "kubernetes/*.y*l", -- You can also use glob patterns like "k8s/*.yaml"
           },
         },
       },
