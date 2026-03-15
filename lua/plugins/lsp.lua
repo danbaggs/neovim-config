@@ -11,7 +11,7 @@ return {
         formatters_by_ft = {
           bash = { "beautysh" },
           dockerfile = { "dockerfmt" },
-          go = { "crlfmt" },
+          go = { "goimports", "gofmt" },
           lua = { lsp_format = "prefer" },
           javascript = { "prettierd", "prettier", stop_after_first = true },
           json = { "jq" },
